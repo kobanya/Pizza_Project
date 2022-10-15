@@ -1,4 +1,6 @@
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Plus extends  JFrame {
     private JPanel mainPanel;
@@ -10,6 +12,11 @@ public class Plus extends  JFrame {
     private JButton PluszPolo;
     private JButton TorolPolo;
     private JLabel OsszesPolo;
+    private JLabel Sor;
+    private JTextField SorDarab;
+    private JButton SorPlusz;
+    private JButton SorClear;
+    private JLabel SorOsszesen;
 
 
     public Plus(String title)   {
@@ -28,10 +35,10 @@ public class Plus extends  JFrame {
             int osszesenFreska = (int) (Double.parseDouble(DarabFresca.getText())
                    * 17);
 
-            OsszesFresca.setText("Összesen : " +osszesenFreska+" eur");
+            OsszesFresca.setText("Összesen : " +osszesenFreska+" €");
         });
 
-        // kosár törlése
+ // Fresca pizza  törlése
         buttonClear.addActionListener(e -> {
             // nullazd ki a beviteli mező
             OsszesFresca.setText(" 0 €");
@@ -45,16 +52,41 @@ public class Plus extends  JFrame {
 
             int osszesenPolo = (int) (Double.parseDouble(DarabPolo.getText())
                     * 15);
-            OsszesPolo.setText("Összesen : "+osszesenPolo+" eur");
+            OsszesPolo.setText("Összesen : "+osszesenPolo+" €");
 // Polo hozzáadas vége
 
           });
-        // Polo törlése
+ // Polo törlése
         TorolPolo.addActionListener(e -> {
             OsszesPolo.setText(" 0 €");
             DarabPolo.setText("0");
         });
+// Sör hozzáadása
+        SorPlusz.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int sorBeer = (int)(Double.parseDouble(SorDarab.getText())
+                        +1);
+                SorDarab.setText(String.valueOf(sorBeer));
+
+                int sorOsszesen = (int) (Double.parseDouble(SorDarab.getText())
+                        * 5);
+                SorOsszesen.setText("Összesen : "+sorOsszesen+" €");
+            }
+        });
+    // Sör törlése
+        SorClear.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent b ) {
+                SorClear.addActionListener(e -> {
+                    SorOsszesen.setText(" 0 €");
+                    SorDarab.setText("0");
+                });
+            }
+        });
     }
+
+
    public static void main(String[] args) {
       JFrame frame = new Plus("Pizza rendeles");
         frame.setVisible(true);
