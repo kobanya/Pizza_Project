@@ -33,7 +33,7 @@ public class Plus extends  JFrame {
             DarabFresca.setText(String.valueOf(pizza1));
 
             int osszesenFreska = (int) (Double.parseDouble(DarabFresca.getText())
-                   * 17);
+                   * 18);
 
             OsszesFresca.setText("Összesen : " +osszesenFreska+" €");
         });
@@ -70,7 +70,7 @@ public class Plus extends  JFrame {
                 SorDarab.setText(String.valueOf(sorBeer));
 
                 int sorOsszesen = (int) (Double.parseDouble(SorDarab.getText())
-                        * 5);
+                        * 4);
                 SorOsszesen.setText("Összesen : "+sorOsszesen+" €");
             }
         });
