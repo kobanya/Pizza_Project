@@ -96,7 +96,7 @@ public class Plus extends  JFrame {
                         + 1);
                 CokeDarab.setText(String.valueOf(Coke));
 
-                int cokeOsszesen = (int) (Double.parseDouble(SorDarab.getText())
+                int cokeOsszesen = (int) (Double.parseDouble(CokeDarab.getText())
                         * 3);
                 CokeOsszesen.setText("Összesen : " + cokeOsszesen + " €");
             }
