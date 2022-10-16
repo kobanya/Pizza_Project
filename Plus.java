@@ -80,15 +80,13 @@ public class Plus extends  JFrame {
             }
         });
         // Sör törlése
-        SorClear.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent b) {
-                SorClear.addActionListener(e -> {
-                    SorOsszesen.setText(" 0 €");
-                    SorDarab.setText("0");
-                });
-            }
+        SorClear.addActionListener(e -> {
+            // nullazd ki a beviteli mező
+            SorOsszesen.setText(" 0 €");
+            SorDarab.setText("0");
         });
+
+
         // Coke  darabszám hozzáadása
 
         CokePlusz.addActionListener(new ActionListener() {
