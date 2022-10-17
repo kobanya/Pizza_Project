@@ -23,6 +23,12 @@ public class Plus extends  JFrame {
     private JButton CokeClear;
     private JLabel CokeOsszesen;
 
+// itt tároljuk a számításainkhoz szükséges értékeket
+
+    private int foodTotal;
+    private int drinkTotal;
+    private int allTotal;
+    boolean freeBeverage;
 
     public Plus(String title) {
         super(title);
@@ -41,6 +47,9 @@ public class Plus extends  JFrame {
                     * 18);
 
             OsszesFresca.setText("Összesen : " + osszesenFreska + " €");
+
+            foodTotal += 18;
+            allTotal += 18;
         });
 
         // Fresca pizza  törlése
