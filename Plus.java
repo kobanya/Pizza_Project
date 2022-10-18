@@ -72,7 +72,8 @@ public class Plus extends  JFrame {
                     RejtettCoke.setVisible(false);
                     int Coke = (int) (Double.parseDouble(CokeDarab.getText())
                             + 1);
-                    CokeDarab.setText(String.valueOf(Coke));
+                    //CokeDarab.setText(String.valueOf(Coke));
+                    IngyenItalSzamla.setText("Ingyen Coke hozzáadva / Free Coke added "+0+" €");
                     ingenPanel.setVisible(false);
 
                 });
@@ -80,7 +81,8 @@ public class Plus extends  JFrame {
                     RejtettSor.setVisible(false);
                     int Sor = (int) (Double.parseDouble(SorDarab.getText())
                             + 1);
-                    SorDarab.setText(String.valueOf(Sor));
+                    //SorDarab.setText(String.valueOf(Sor));
+                    IngyenItalSzamla.setText("Ingyen Sör  hozzáadva / Free Beer added "+0+" €");
                     ingenPanel.setVisible(false);
                 });
 
@@ -129,8 +131,7 @@ public class Plus extends  JFrame {
                     int Coke = (int) (Double.parseDouble(CokeDarab.getText())
                             + 1);
                     //CokeDarab.setText(String.valueOf(Coke));
-                    IngyenItalSzamla.setText("Ingyen Coke hozzáadva / Free CoKe added "+0+" €");
-
+                    IngyenItalSzamla.setText("Ingyen Coke hozzáadva / Free Coke added "+0+" €");
                     ingenPanel.setVisible(false);
 
                 });
@@ -140,7 +141,6 @@ public class Plus extends  JFrame {
                     int Sor = (int) (Double.parseDouble(SorDarab.getText())
                             + 1);
                     //SorDarab.setText(String.valueOf(Sor));
-                    ingenPanel.setVisible(false);
                     IngyenItalSzamla.setText("Ingyen sör hozzáadva / Free beer added "+0+" €");
                     ingenPanel.setVisible(false);
                 });
@@ -247,7 +247,7 @@ public class Plus extends  JFrame {
     }
 
    public static void main(String[] args) {
-      JFrame frame = new Plus("Pizza rendeles");
+      JFrame frame = new Plus("Pizza rendelő rendszer / Pizza Ordering System");
         frame.setVisible(true);
    // az ablak a monitor közepén nyílik meg
        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
