@@ -58,11 +58,10 @@ public class Plus extends  JFrame {
 
             etelOsszesen = osszesenFreska  + osszesenPolo;
             osszesenPizza.setText("Étel osszesen / Food total :" + etelOsszesen + " €");
-     // Totál definiálása
+    // Totál definiálása
             total = osszesenFreska + osszesenPolo+ cokeOsszesen+sorOsszesen;
             Ltotal.setText( total + " €");
-
-     // teszt  IF függvény
+    // teszt  IF függvény
             if (etelOsszesen > 45) {
     // rejtett panael megjelenik ha meghaladja a 45 eurót az ételek összege
                 ingenPanel.setVisible(true);
