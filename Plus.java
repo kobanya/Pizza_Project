@@ -38,6 +38,7 @@ public class Plus extends  JFrame {
     private JButton RejtettSor;
     private JButton RejtettCoke;
     private JPanel ingenPanel;
+    private JLabel IngyenItalSzamla;
 
 
     public Plus(String title) {
@@ -120,13 +121,16 @@ public class Plus extends  JFrame {
     //  IF függvény
      if (etelOsszesen > 45) {
                 // rejtett panael megjelenik ha meghaladja a 45 eurót az ételek összege
+
                 ingenPanel.setVisible(true);
                 // coKe rejtett gomb + hozzáad majd eltűnik
                 RejtettCoke.addActionListener(e12 -> {
                     RejtettCoke.setVisible(false);
                     int Coke = (int) (Double.parseDouble(CokeDarab.getText())
                             + 1);
-                    CokeDarab.setText(String.valueOf(Coke));
+                    //CokeDarab.setText(String.valueOf(Coke));
+                    IngyenItalSzamla.setText("Ingyen Coke hozzáadva / Free CoKe added "+0+" €");
+
                     ingenPanel.setVisible(false);
 
                 });
@@ -135,7 +139,9 @@ public class Plus extends  JFrame {
                    // RejtettCoke.setVisible(false);
                     int Sor = (int) (Double.parseDouble(SorDarab.getText())
                             + 1);
-                    SorDarab.setText(String.valueOf(Sor));
+                    //SorDarab.setText(String.valueOf(Sor));
+                    ingenPanel.setVisible(false);
+                    IngyenItalSzamla.setText("Ingyen sör hozzáadva / Free beer added "+0+" €");
                     ingenPanel.setVisible(false);
                 });
 
@@ -223,6 +229,7 @@ public class Plus extends  JFrame {
             SorOsszesen.setText("0 €");
             osszesenPizza.setText("Étel összesen  / Food total : 0 €");
             ItalokOsszesen.setText("Ital összesen / Drink total: 0 €");
+            IngyenItalSzamla.setText("  ");
      // Változók nullázása
             sorOsszesen=0;
             cokeOsszesen=0;
