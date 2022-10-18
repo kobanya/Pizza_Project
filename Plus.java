@@ -32,14 +32,15 @@ public class Plus extends  JFrame {
     private int sorOsszesen;
     private int cokeOsszesen;
     private int etelOsszesen;
-    private int minuszPolo=0;
-    private int minuszFresca = 0;
+    //private int minuszPolo=0;
+    //private int minuszFresca = 0;
     private  int minuszPolo1;
     private int italOsszesen1;
     private int  total;
     private JLabel ItalokOsszesen;
     private JButton RejtettSor;
     private JButton RejtettCoke;
+    private JPanel ingenPanel;
 
 
     public Plus(String title) {
@@ -47,6 +48,7 @@ public class Plus extends  JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(mainPanel);
         this.pack();
+        ingenPanel.setVisible(false);
         ConverterButton.addActionListener(e -> {
             // olvasd be az értéket
             //alakítsd át tizedesre
@@ -66,7 +68,46 @@ public class Plus extends  JFrame {
             total = osszesenFreska + osszesenPolo+ cokeOsszesen+sorOsszesen;
             Ltotal.setText( total + " €");
 
+            // teszt  IF függvény
+            if (etelOsszesen > 45) {
+                // rejtett panael megjelenik ha meghaladja a 45 eurót az ételek összege
+                ingenPanel.setVisible(true);
+                // coKe rejtett gomb + hozzáad majd eltűnik
+                RejtettCoke.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        RejtettCoke.setVisible(false);
+                        int Coke = (int) (Double.parseDouble(CokeDarab.getText())
+                                + 1);
+                        CokeDarab.setText(String.valueOf(Coke));
+                        ingenPanel.setVisible(false);
+
+                    }
+                });
+                RejtettSor.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        RejtettSor.setVisible(false);
+                        // RejtettCoke.setVisible(false);
+                        int Sor = (int) (Double.parseDouble(SorDarab.getText())
+                                + 1);
+                        SorDarab.setText(String.valueOf(Sor));
+                        ingenPanel.setVisible(false);
+                    }
+
+
+                });
+
+
+
+            } else { ingenPanel.setVisible(false);
+
+            }
+
+
         });
+
+
 
         // Fresca pizza  törlése
         buttonClear.addActionListener(e -> {
@@ -96,6 +137,43 @@ public class Plus extends  JFrame {
 // Totál definiálása
             total = osszesenFreska + osszesenPolo+ cokeOsszesen+sorOsszesen;
             Ltotal.setText( total + " €");
+
+ // teszt  IF függvény
+     if (etelOsszesen > 45) {
+                // rejtett panael megjelenik ha meghaladja a 45 eurót az ételek összege
+                ingenPanel.setVisible(true);
+                // coKe rejtett gomb + hozzáad majd eltűnik
+                RejtettCoke.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        RejtettCoke.setVisible(false);
+                        int Coke = (int) (Double.parseDouble(CokeDarab.getText())
+                                + 1);
+                        CokeDarab.setText(String.valueOf(Coke));
+                        ingenPanel.setVisible(false);
+
+                    }
+                });
+                RejtettSor.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            RejtettSor.setVisible(false);
+                           // RejtettCoke.setVisible(false);
+                            int Sor = (int) (Double.parseDouble(SorDarab.getText())
+                                    + 1);
+                            SorDarab.setText(String.valueOf(Sor));
+                            ingenPanel.setVisible(false);
+                        }
+
+
+                });
+
+
+
+            } else { ingenPanel.setVisible(false);
+
+            }
+
 
         });
 
@@ -173,42 +251,11 @@ public class Plus extends  JFrame {
             osszesenPizza.setText("Étel összesen  / Food total : 0 €");
             ItalokOsszesen.setText("Ital összesen / Drink total: 0 €");
         });
-// teszt  IF függvény
-        if (etelOsszesen > 45) {
-
-            RejtettSor.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-
-                }
-            });
 
 
-        } else {
-            ;
-        }
 
-// coKe rejtett gomb + hozzáad majd eltűnik
-        RejtettCoke.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                    RejtettCoke.setVisible(false);
-                int Coke = (int) (Double.parseDouble(CokeDarab.getText())
-                        + 1);
-                CokeDarab.setText(String.valueOf(Coke));
 
-            }
-        });
-// SÖR rejtett gomb - hozzáad majd eltűnik
-        RejtettSor.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                RejtettSor.setVisible(false);
-                int Sor = (int) (Double.parseDouble(SorDarab.getText())
-                        + 1);
-                SorDarab.setText(String.valueOf(Sor));
-            }
-        });
+
     }
 
    public static void main(String[] args) {
