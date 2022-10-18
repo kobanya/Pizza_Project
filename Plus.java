@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 
 public class Plus extends  JFrame {
     private JPanel mainPanel;
@@ -241,6 +242,11 @@ public class Plus extends  JFrame {
    public static void main(String[] args) {
       JFrame frame = new Plus("Pizza rendeles");
         frame.setVisible(true);
+   // az ablak a monitor közepén nyílik meg
+       Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+       int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2);
+       int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
+       frame.setLocation(x, y);
 
     }
 
