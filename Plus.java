@@ -222,12 +222,12 @@ public class Plus extends  JFrame {
 //            osszItalLabel.setText("Ital osszesen / Drinks total : " + italOsszesen1 + " €");
 
         });
-     // Sör törlése
+ // Sör törlése
         SorClear.addActionListener(e -> {
-//            // nullazd ki a beviteli mező
-//            SorOsszesen.setText(" 0 €");
-//            sorDbLabel.setText("0");
-//            osszesenBeer =0;
+                  // nullazd ki a beviteli mező
+                  //SorOsszesen.setText(" 0 €");
+                  //sorDbLabel.setText("0");
+                 // osszesenBeer =0;
             beerDb = 0;
             calculate();
             refreshGUI();
@@ -241,52 +241,54 @@ public class Plus extends  JFrame {
             calculate();
             refreshGUI();
 
-//            int Coke = (int) (Double.parseDouble(cokeDbLabel.getText())
-//                    + 1);
-//            cokeDbLabel.setText(String.valueOf(Coke));
-//
-//            osszesenCoke = (int) (Double.parseDouble(cokeDbLabel.getText())
-//                    * 3);
-//            OsszesCoke.setText("Összesen : " + osszesenCoke + " €");
-//            // Totál definiálása
-//            total = osszesenFreska + osszesenPolo+ osszesenCoke + osszesenBeer;
-//            Ltotal.setText( total + " €");
-//
-//            italOsszesen1 = osszesenBeer + osszesenCoke;
-//            osszItalLabel.setText("Ital osszesen / Drinks total : " + italOsszesen1 + " €");
+                  //int Coke = (int) (Double.parseDouble(cokeDbLabel.getText())
+                  //          + 1);
+                   // cokeDbLabel.setText(String.valueOf(Coke));
+
+                   // osszesenCoke = (int) (Double.parseDouble(cokeDbLabel.getText())
+                   //     * 3);
+                   //  OsszesCoke.setText("Összesen : " + osszesenCoke + " €");
+                   // Totál definiálása
+                   //total = osszesenFreska + osszesenPolo+ osszesenCoke + osszesenBeer;
+                   // Ltotal.setText( total + " €");
+                   //  italOsszesen1 = osszesenBeer + osszesenCoke;
+                   // osszItalLabel.setText("Ital osszesen / Drinks total : " + italOsszesen1 + " €");
         });
-    // Coke törlése
+// Coke törlése
 
         CokeClear.addActionListener(e -> {
-//            // nullazd ki a beviteli mező
-//            CokeOsszesen.setText(" 0 €");
-//            cokeDbLabel.setText("0");
+                   // nullazd ki a beviteli mező
+                   //CokeOsszesen.setText(" 0 €");
+                   //cokeDbLabel.setText("0");
             cokeDb = 0;
             calculate();
             refreshGUI();
         });
+// Minden adat  nullázása
 
-     // Minden adat  nullázása
         removeAll.addActionListener(e -> {
-     // SZöveges mezők törlése
-            Ltotal.setText(0 + " €");
-            poloDbLabel.setText("0");
-            frescaDbLabel.setText("0");
-            cokeDbLabel.setText("0");
-            sorDbLabel.setText("0");
-            OsszesFresca.setText("0 €");
-            OsszesPolo.setText("0 €");
-            OsszesCoke.setText("0 €");
-            OsszesSor.setText("0 €");
-            osszEtelLabel.setText("Étel összesen  / Food total : 0 €");
-            osszItalLabel.setText("Ital összesen / Drink total: 0 €");
-            IngyenItalSzamla.setText("  ");
-     // Változók nullázása
-            osszesenBeer =0;
-            osszesenCoke =0;
-            osszesenFreska=0;
-            osszesenPolo=0;
-            total=0;
+                // SZöveges mezők törlése
+                //  Ltotal.setText(0 + " €");
+                // poloDbLabel.setText("0");
+                //  frescaDbLabel.setText("0");
+                // cokeDbLabel.setText("0");
+                // sorDbLabel.setText("0");
+                // OsszesFresca.setText("0 €");
+                // OsszesPolo.setText("0 €");
+                // OsszesCoke.setText("0 €");
+                 //OsszesSor.setText("0 €");
+                 // osszEtelLabel.setText("Étel összesen  / Food total : 0 €");
+                 // osszItalLabel.setText("Ital összesen / Drink total: 0 €");
+                 // IngyenItalSzamla.setText("  ");
+                 // Változók nullázása
+                 // osszesenBeer =0;
+                 // osszesenCoke =0;
+                 // osszesenFreska=0;
+                 // osszesenPolo=0;
+            frescaDb=0;
+            poloDb=0;
+            cokeDb=0;
+            beerDb=0;
 
             calculate();
             refreshGUI();
