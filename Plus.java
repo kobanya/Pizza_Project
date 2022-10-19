@@ -101,6 +101,7 @@ public class Plus extends  JFrame {
             // nullazd ki a beviteli mezőt
             OsszesFresca.setText(" 0 €");
             DarabFresca.setText("0");
+            //Polo  pizza   töröl clear gomb esetén a totálból levonja a Polo pizzak törölt értékét
             FrescaTotalMinusz =total-osszesenFreska;
             Ltotal.setText( FrescaTotalMinusz + " €");
             osszesenFreska=0;
@@ -161,6 +162,7 @@ public class Plus extends  JFrame {
         TorolPolo.addActionListener(e -> {
             OsszesPolo.setText(" 0 €");
             DarabPolo.setText("0");
+            //Polo  pizza   töröl clear gomb esetén a totálból levonja a Polo pizzak törölt értékét
             PoloTotalMinusz =total-osszesenPolo;
             Ltotal.setText( PoloTotalMinusz + " €");
             osszesenPolo=0;
