@@ -64,8 +64,8 @@ public class Plus extends  JFrame {
             total = osszesenFreska + osszesenPolo+ cokeOsszesen+sorOsszesen;
             Ltotal.setText( total + " €");
     // teszt  IF függvény
-            if (etelOsszesen > 45) {
-    // rejtett panael megjelenik ha meghaladja a 45 eurót az ételek összege
+            if (etelOsszesen > 44 ) {
+    // rejtett panael megjelenik ha meghaladja a 44 eurót az ételek összege
                 ingenPanel.setVisible(true);
     // coKe rejtett gomb + hozzáad majd eltűnik
                 RejtettCoke.addActionListener(e14 -> {
@@ -121,8 +121,8 @@ public class Plus extends  JFrame {
             Ltotal.setText( total + " €");
 
     //  IF függvény
-     if (etelOsszesen > 45) {
-                // rejtett panael megjelenik ha meghaladja a 45 eurót az ételek összege
+     if (etelOsszesen > 44) {
+                // rejtett panael megjelenik ha meghaladja a 44 eurót az ételek összege
 
                 ingenPanel.setVisible(true);
                 // coKe rejtett gomb + hozzáad majd eltűnik
