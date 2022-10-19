@@ -4,10 +4,10 @@ import java.awt.*;
 public class Plus extends  JFrame {
     private JPanel mainPanel;
     private JPanel ingyenPanel;
-    public JTextField frescaDbLabel;
-    private JTextField poloDbLabel;
-    private JTextField sorDbLabel;
-    private JTextField cokeDbLabel;
+    public JLabel frescaDbLabel;
+    private JLabel poloDbLabel;
+    private JLabel sorDbLabel;
+    private JLabel cokeDbLabel;
     public JButton darabFresca;
     private JButton buttonClear;
     private JButton PluszPolo;
@@ -227,7 +227,7 @@ public class Plus extends  JFrame {
                   // nullazd ki a beviteli mező
                   //SorOsszesen.setText(" 0 €");
                   //sorDbLabel.setText("0");
-                 // osszesenBeer =0;
+                  // osszesenBeer =0;
             beerDb = 0;
             calculate();
             refreshGUI();
@@ -313,10 +313,14 @@ public class Plus extends  JFrame {
         osszesenCoke = cokeDb * cokeAr;
         osszesenBeer = beerDb * beerAr;
 
+
         if (osszesenFreska + osszesenPolo >= 45 && !ingyenItalValasztva )
-        {
-            valasztasAktiv = true;
-            ingyenItalValasztva = true;
+        {  ingyenPanel.setVisible(true);
+            //valasztasAktiv = true;
+            //ingyenItalValasztva = true;
+        }
+
+        else { ingyenPanel.setVisible(false);
         }
     }
 
@@ -336,9 +340,9 @@ public class Plus extends  JFrame {
         int osszItal = osszesenCoke + osszesenBeer;
 
         osszEtelLabel.setText("Étel összesen / Food total: " + osszEtel + " €");
-        osszItalLabel.setText("Étel összesen / Food total: " + osszItal + " €");
+        osszItalLabel.setText("Itall összesen / Beverages total: " + osszItal + " €");
 
-        Ltotal.setText(String.valueOf(osszEtel+osszItal));
+        Ltotal.setText(String.valueOf(osszEtel+osszItal+" €"));
 //        OsszesenTotal=;
 //        IngyenItalSzamla=;
     }
