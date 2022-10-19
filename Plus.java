@@ -3,42 +3,54 @@ import java.awt.*;
 
 public class Plus extends  JFrame {
     private JPanel mainPanel;
+    private JPanel ingyenPanel;
     public JTextField DarabFresca;
-    public JButton darabFresca;
-    public JLabel OsszesFresca;
-    private JButton buttonClear;
     private JTextField DarabPolo;
+    private JTextField SorDarab;
+    private JTextField CokeDarab;
+    public JButton darabFresca;
+    private JButton buttonClear;
     private JButton PluszPolo;
     private JButton TorolPolo;
-    public JLabel OsszesPolo;
-    private JLabel Sor;
-    private JTextField SorDarab;
     private JButton SorPlusz;
     private JButton SorClear;
-    private JLabel SorOsszesen;
-    private JLabel cokeLabel;
-    private JTextField CokeDarab;
     private JButton CokePlusz;
     private JButton CokeClear;
+    private JButton removeAll;
+    private JButton RejtettSor;
+    private JButton RejtettCoke;
+    public JLabel OsszesFresca;
+    public JLabel OsszesPolo;
+    private JLabel Sor;
+    private JLabel SorOsszesen;
+    private JLabel cokeLabel;
     private JLabel CokeOsszesen;
     private JLabel osszesenPizza;
     private JLabel OsszesenTotal;
     private JLabel Ltotal;
-    private JButton removeAll;
+    private JLabel ItalokOsszesen;
+    private JLabel IngyenItalSzamla;
+
+
+    private final int frescaAr = 18;
+    private final int poloAr = 15;
+    private final int beerAr = 4;
+    private final int cokeAr = 3;
+
+    private int frescaDb;
+    private int poloDb;
+    private int cokeDb;
+    private int beerDb;
+
+
+    private int italOsszesen1;
     private int osszesenPolo;
     private int osszesenFreska;
-    private int sorOsszesen;
-    private int cokeOsszesen;
+    private int osszesenBeer;
+    private int osszesenCoke;
     private int etelOsszesen;
-
     private  int minuszPolo1;
-    private int italOsszesen1;
     private int  total;
-    private JLabel ItalokOsszesen;
-    private JButton RejtettSor;
-    private JButton RejtettCoke;
-    private JPanel ingyenPanel;
-    private JLabel IngyenItalSzamla;
     private int FrescaTotalMinusz;
     private int PoloTotalMinusz;
 
@@ -49,8 +61,15 @@ public class Plus extends  JFrame {
         this.setContentPane(mainPanel);
         this.pack();
         ingyenPanel.setVisible(false);
+
         darabFresca.addActionListener(e -> {
      // olvasd be az értéket, alakítsd át tizedesre
+            frescaDb++;
+
+            calculate();
+
+            refreshGUI();
+
             int pizzaFresca = (int) (Double.parseDouble(DarabFresca.getText())
                     + 1);
             DarabFresca.setText(String.valueOf(pizzaFresca));
@@ -63,7 +82,7 @@ public class Plus extends  JFrame {
             etelOsszesen = osszesenFreska  + osszesenPolo;
             osszesenPizza.setText("Étel osszesen / Food total :" + etelOsszesen + " €");
     // Totál definiálása
-            total = osszesenFreska + osszesenPolo+ cokeOsszesen+sorOsszesen;
+            total = osszesenFreska + osszesenPolo+ osszesenCoke + osszesenBeer;
             Ltotal.setText( total + " €");
     // teszt  IF függvény
             if (etelOsszesen > 44 ) {
@@ -122,7 +141,7 @@ public class Plus extends  JFrame {
             etelOsszesen = osszesenFreska  + osszesenPolo;
             osszesenPizza.setText("Étel osszesen / Food total : " + etelOsszesen + " €");
     // Totál definiálása
-            total = osszesenFreska + osszesenPolo+ cokeOsszesen+sorOsszesen;
+            total = osszesenFreska + osszesenPolo+ osszesenCoke + osszesenBeer;
             Ltotal.setText( total + " €");
 
     //  IF függvény
@@ -178,15 +197,15 @@ public class Plus extends  JFrame {
                     + 1);
             SorDarab.setText(String.valueOf(sorBeer));
 
-            sorOsszesen = (int) (Double.parseDouble(SorDarab.getText())
+            osszesenBeer = (int) (Double.parseDouble(SorDarab.getText())
                     * 4);
-            SorOsszesen.setText("Összesen : " + sorOsszesen + " €");
+            SorOsszesen.setText("Összesen : " + osszesenBeer + " €");
 
             // Totál definiálása
-            total = osszesenFreska + osszesenPolo+ cokeOsszesen+sorOsszesen;
+            total = osszesenFreska + osszesenPolo+ osszesenCoke + osszesenBeer;
             Ltotal.setText( total + " €");
 
-            italOsszesen1 = sorOsszesen + cokeOsszesen;
+            italOsszesen1 = osszesenBeer + osszesenCoke;
             ItalokOsszesen.setText("Ital osszesen / Drinks total : " + italOsszesen1 + " €");
 
         });
@@ -195,7 +214,7 @@ public class Plus extends  JFrame {
             // nullazd ki a beviteli mező
             SorOsszesen.setText(" 0 €");
             SorDarab.setText("0");
-            sorOsszesen=0;
+            osszesenBeer =0;
         });
 
        // Coke  darabszám hozzáadása
@@ -205,14 +224,14 @@ public class Plus extends  JFrame {
                     + 1);
             CokeDarab.setText(String.valueOf(Coke));
 
-            cokeOsszesen = (int) (Double.parseDouble(CokeDarab.getText())
+            osszesenCoke = (int) (Double.parseDouble(CokeDarab.getText())
                     * 3);
-            CokeOsszesen.setText("Összesen : " + cokeOsszesen + " €");
+            CokeOsszesen.setText("Összesen : " + osszesenCoke + " €");
             // Totál definiálása
-            total = osszesenFreska + osszesenPolo+ cokeOsszesen+sorOsszesen;
+            total = osszesenFreska + osszesenPolo+ osszesenCoke + osszesenBeer;
             Ltotal.setText( total + " €");
 
-            italOsszesen1 = sorOsszesen + cokeOsszesen;
+            italOsszesen1 = osszesenBeer + osszesenCoke;
             ItalokOsszesen.setText("Ital osszesen / Drinks total : " + italOsszesen1 + " €");
         });
     // Coke törlése
@@ -239,8 +258,8 @@ public class Plus extends  JFrame {
             ItalokOsszesen.setText("Ital összesen / Drink total: 0 €");
             IngyenItalSzamla.setText("  ");
      // Változók nullázása
-            sorOsszesen=0;
-            cokeOsszesen=0;
+            osszesenBeer =0;
+            osszesenCoke =0;
             osszesenFreska=0;
             osszesenPolo=0;
             total=0;
@@ -265,5 +284,22 @@ public class Plus extends  JFrame {
 
     }
 
+    void calculate()
+    {
+        osszesenFreska = frescaDb * frescaAr;
+        osszesenPolo = poloDb * poloAr;
+        osszesenCoke = cokeDb * cokeAr;
+        osszesenBeer = beerDb * beerAr;
+
+        if (osszesenFreska + osszesenPolo >= 45)
+        {
+
+        }
+    }
+
+    void refreshGUI()
+    {
+
+    }
 
 }
