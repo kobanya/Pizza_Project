@@ -47,7 +47,7 @@
           </hspacer>
         </children>
       </grid>
-      <component id="d5dff" class="javax.swing.JTextField" binding="DarabFresca">
+      <component id="d5dff" class="javax.swing.JTextField" binding="frescaDbLabel">
         <constraints>
           <grid row="3" column="4" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="80" height="20"/>
@@ -60,7 +60,7 @@
           <text value="0"/>
         </properties>
       </component>
-      <component id="278b6" class="javax.swing.JTextField" binding="DarabPolo">
+      <component id="278b6" class="javax.swing.JTextField" binding="poloDbLabel">
         <constraints>
           <grid row="4" column="4" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="80" height="20"/>
@@ -206,7 +206,7 @@
           <text value="Coke"/>
         </properties>
       </component>
-      <component id="7f015" class="javax.swing.JTextField" binding="SorDarab">
+      <component id="7f015" class="javax.swing.JTextField" binding="sorDbLabel">
         <constraints>
           <grid row="8" column="4" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="80" height="20"/>
@@ -219,7 +219,7 @@
           <text value="0"/>
         </properties>
       </component>
-      <component id="76982" class="javax.swing.JTextField" binding="CokeDarab">
+      <component id="76982" class="javax.swing.JTextField" binding="cokeDbLabel">
         <constraints>
           <grid row="9" column="4" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="80" height="20"/>
@@ -353,7 +353,7 @@
           <grid row="14" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
       </hspacer>
-      <component id="b3400" class="javax.swing.JLabel" binding="ItalokOsszesen">
+      <component id="b3400" class="javax.swing.JLabel" binding="osszItalLabel">
         <constraints>
           <grid row="16" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -362,7 +362,7 @@
           <text value="Ital összesen / Beverage total:  0 €"/>
         </properties>
       </component>
-      <component id="b6049" class="javax.swing.JLabel" binding="osszesenPizza">
+      <component id="b6049" class="javax.swing.JLabel" binding="osszEtelLabel">
         <constraints>
           <grid row="15" column="3" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
