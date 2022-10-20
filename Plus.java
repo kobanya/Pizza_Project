@@ -1,5 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseMotionAdapter;
 
 public class Plus extends  JFrame {
     private JPanel mainPanel;
@@ -30,6 +33,10 @@ public class Plus extends  JFrame {
     private JLabel Ltotal;
     private JLabel osszItalLabel;
     private JLabel IngyenItalSzamla;
+    private JPanel IgyenItalPanel;
+    private JButton IngyenButton;
+    private JPanel kosar;
+
 
 
     private final int frescaAr = 18;
@@ -293,6 +300,10 @@ public class Plus extends  JFrame {
             calculate();
             refreshGUI();
         });
+
+
+        RejtettCoke.addMouseMotionListener(new MouseMotionAdapter() {
+        });
     }
 
    public static void main(String[] args) {
@@ -316,10 +327,26 @@ public class Plus extends  JFrame {
 
         if (osszesenFreska + osszesenPolo >= 45 && !ingyenItalValasztva )
         {  ingyenPanel.setVisible(true);
-            //valasztasAktiv = true;
+            RejtettCoke.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+// mit tegyen ha megnyomom
+                    ingyenPanel.setVisible(false);
+
+            RejtettSor.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+// mit tegyen ha megnyomom
+                            ingyenPanel.setVisible(false);
+                        }
+                    });
+                }
+            });
+
+                // valasztasAktiv = true;
+
             //ingyenItalValasztva = true;
         }
-
         else { ingyenPanel.setVisible(false);
         }
     }
@@ -331,7 +358,7 @@ public class Plus extends  JFrame {
         sorDbLabel.setText(String.valueOf(beerDb));
         cokeDbLabel.setText(String.valueOf(cokeDb));
 
-        OsszesFresca.setText("Összesen : " + osszesenFreska + " €");
+        OsszesFresca.setText(frescaDb+" x  "+frescaAr+" €  = " + osszesenFreska + " €");
         OsszesPolo.setText("Összesen : " + osszesenPolo + " €");
         OsszesSor.setText("Összesen : " + osszesenBeer + " €");
         OsszesCoke.setText("Összesen : " + osszesenCoke + " €");
@@ -346,5 +373,7 @@ public class Plus extends  JFrame {
 //        OsszesenTotal=;
 //        IngyenItalSzamla=;
     }
+
+
 
 }
