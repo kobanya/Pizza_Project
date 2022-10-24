@@ -27,7 +27,7 @@
         </constraints>
         <properties>
           <font size="24"/>
-          <icon value="icons8-pizza-50 (1).png"/>
+          <icon value="pizzaFresca.png"/>
           <text value="Pizza  Fresca"/>
         </properties>
       </component>
@@ -39,7 +39,7 @@
         </constraints>
         <properties>
           <font size="24"/>
-          <icon value="icons8-pizza-50.png"/>
+          <icon value="pizzaPolo.png"/>
           <text value="Pizza  Polo"/>
         </properties>
       </component>
@@ -90,7 +90,7 @@
         </constraints>
         <properties>
           <font size="24"/>
-          <icon value="icons8-cola-50.png"/>
+          <icon value="cola.png"/>
           <text value="Coke"/>
         </properties>
       </component>
@@ -432,7 +432,7 @@
               <hideActionText value="true"/>
               <horizontalAlignment value="0"/>
               <horizontalTextPosition value="4"/>
-              <icon value="icons8-cola-50.png"/>
+              <icon value="cola.png"/>
               <text value="  Ingyen Coke / Free Coke"/>
             </properties>
           </component>
