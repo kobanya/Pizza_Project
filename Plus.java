@@ -124,17 +124,17 @@ public class Plus extends  JFrame {
 // Ingyen coke hozzáadása
         RejtettCoke.addActionListener(e -> {
             ingyenCoke = true;
+            ingyenItalValasztva = true;
             calculate();
             refreshGUI();
-            ingyenItalValasztva = true;
         });
 
 // Ingyen sör hozzáadása
         RejtettSor.addActionListener(e -> {
             ingyenSor = true;
+            ingyenItalValasztva = true;
             calculate();
             refreshGUI();
-            ingyenItalValasztva = true;
         });
 
 // Minden adat  nullázása
@@ -225,8 +225,11 @@ public class Plus extends  JFrame {
 
         if (ingyenItalValasztva)
         {
-            IgyenItalPanel.setVisible(false);
+            IgyenItalPanel.setVisible(true);
         }
+        else
+            IgyenItalPanel.setVisible(false);
+
 //        OsszesenTotal=;
 //        IngyenItalSzamla=;
     }
