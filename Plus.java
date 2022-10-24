@@ -55,7 +55,7 @@ public class Plus extends  JFrame {
     private int osszesenCoke;
 
     private boolean valasztasAktiv;
-    private boolean ingyenItalValasztva;
+    private boolean ingyenItalValasztva = false;
 
     private boolean ingyenSor = false;
     private boolean ingyenCoke = false;
@@ -126,6 +126,7 @@ public class Plus extends  JFrame {
             ingyenCoke = true;
             calculate();
             refreshGUI();
+            ingyenItalValasztva = true;
         });
 
 // Ingyen sör hozzáadása
@@ -133,6 +134,7 @@ public class Plus extends  JFrame {
             ingyenSor = true;
             calculate();
             refreshGUI();
+            ingyenItalValasztva = true;
         });
 
 // Minden adat  nullázása
@@ -201,22 +203,30 @@ public class Plus extends  JFrame {
 
         Ltotal.setText(String.valueOf(osszEtel+osszItal+" €"));
 
-        if(valasztasAktiv) {
-            if (!ingyenItalValasztva)
+        if(valasztasAktiv)
+            {
                 ingyenPanel.setVisible(true);
-
-            if (ingyenCoke || ingyenSor) {
-                IgyenItalPanel.setVisible(true);
-
-                if (ingyenSor) {
-                    ingyenLabel.setText("Ingyen ital: sör");
-                } else {
-                    ingyenLabel.setText("Ingyen ital: coke");
-                }
+            }
+        else
+            {
                 ingyenPanel.setVisible(false);
             }
+
+        if (ingyenCoke || ingyenSor)
+        {
+            if (ingyenSor) {
+                ingyenLabel.setText("Ingyen ital: sör");
+            } else {
+                ingyenLabel.setText("Ingyen ital: coke");
+            }
+            ingyenPanel.setVisible(false);
+            IgyenItalPanel.setVisible(true);
         }
 
+        if (ingyenItalValasztva)
+        {
+            IgyenItalPanel.setVisible(false);
+        }
 //        OsszesenTotal=;
 //        IngyenItalSzamla=;
     }
