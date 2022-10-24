@@ -1,7 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class Plus extends  JFrame {
     private JPanel mainPanel;
@@ -23,25 +21,15 @@ public class Plus extends  JFrame {
     private JButton RejtettCoke;
     public JLabel OsszesFresca;
     public JLabel OsszesPolo;
-    private JLabel Sor;
     private JLabel OsszesSor;
-    private JLabel cokeLabel;
     private JLabel OsszesCoke;
     private JLabel osszEtelLabel;
-    private JLabel OsszesenTotal;
     private JLabel Ltotal;
     private JLabel osszItalLabel;
-    private JLabel IngyenItalSzamla;
     private JPanel IgyenItalPanel;
     private JButton IngyenButton;
-    private JPanel kosar;
     private JLabel ingyenLabel;
 
-
-    private final int frescaAr = 18;
-    private final int poloAr = 15;
-    private final int beerAr = 4;
-    private final int cokeAr = 3;
 
     private int frescaDb;
     private int poloDb;
@@ -120,7 +108,6 @@ public class Plus extends  JFrame {
             refreshGUI();
         });
 
-
 // Ingyen coke hozzáadása
         RejtettCoke.addActionListener(e -> {
             ingyenCoke = true;
@@ -150,16 +137,14 @@ public class Plus extends  JFrame {
             valasztasAktiv= false;
             IgyenItalPanel.setVisible(false);
 
-
             calculate();
             refreshGUI();
         });
-
+// ingyenital törlése
         IngyenButton.addActionListener(e -> IgyenItalPanel.setVisible(false));
+
             calculate();
             refreshGUI();
-
-
     }
 
    public static void main(String[] args) {
@@ -170,14 +155,18 @@ public class Plus extends  JFrame {
        int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2);
        int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
        frame.setLocation(x, y);
+        }
 
-    }
 
     void calculate()
     {
+        int frescaAr = 18;
         osszesenFreska = frescaDb * frescaAr;
+        int poloAr = 15;
         osszesenPolo = poloDb * poloAr;
+        int cokeAr = 3;
         osszesenCoke = cokeDb * cokeAr;
+        int beerAr = 4;
         osszesenBeer = beerDb * beerAr;
 
         if (osszesenFreska + osszesenPolo >= 45 && !ingyenItalValasztva )
@@ -193,10 +182,10 @@ public class Plus extends  JFrame {
         sorDbLabel.setText(String.valueOf(beerDb));
         cokeDbLabel.setText(String.valueOf(cokeDb));
 
-        OsszesFresca.setText("Összesen : "+ osszesenFreska + " €");
-        OsszesPolo.setText("Összesen : " + osszesenPolo + " €");
-        OsszesSor.setText("Összesen : " + osszesenBeer + " €");
-        OsszesCoke.setText("Összesen : " + osszesenCoke + " €");
+        OsszesFresca.setText(" Összesen : "+ osszesenFreska + " €");
+        OsszesPolo.setText(" Összesen : " + osszesenPolo + " €");
+        OsszesSor.setText(" Összesen : " + osszesenBeer + " €");
+        OsszesCoke.setText(" Összesen : " + osszesenCoke + " €");
 
         int osszEtel = osszesenFreska + osszesenPolo;
         int osszItal = osszesenCoke + osszesenBeer;
@@ -204,25 +193,17 @@ public class Plus extends  JFrame {
         osszEtelLabel.setText("Étel összesen / Food total: " + osszEtel + " €");
         osszItalLabel.setText("Itall összesen / Beverages total: " + osszItal + " €");
 
-        Ltotal.setText(String.valueOf(osszEtel+osszItal+" €"));
+        Ltotal.setText(osszEtel + osszItal + " €");
 
         IngyenButton.addActionListener(e -> IgyenItalPanel.setVisible(false));
-
-        if(valasztasAktiv)
-            {
-                ingyenPanel.setVisible(true);
-            }
-        else
-            {
-                ingyenPanel.setVisible(false);
-            }
+        ingyenPanel.setVisible(valasztasAktiv);
 
         if (ingyenCoke || ingyenSor)
         {
             if (ingyenSor) {
-                ingyenLabel.setText("Ingyen ital / Free beverages: sör");
+                ingyenLabel.setText("Ingyen ital  / Free beverage:   Sör / Beer");
             } else {
-                ingyenLabel.setText("Ingyen ital / Free beverages: coke");
+                ingyenLabel.setText("Ingyen ital / Free beverage:   Coke");
             }
             ingyenPanel.setVisible(false);
             IgyenItalPanel.setVisible(true);
