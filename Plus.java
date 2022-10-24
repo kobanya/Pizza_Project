@@ -66,6 +66,7 @@ public class Plus extends  JFrame {
         this.setContentPane(mainPanel);
         this.pack();
         ingyenPanel.setVisible(false);
+        IgyenItalPanel.setVisible(false);
 
         darabFresca.addActionListener(e -> {
             frescaDb++;
@@ -146,6 +147,14 @@ public class Plus extends  JFrame {
             refreshGUI();
         });
 
+        IngyenButton.addActionListener(e -> {
+
+            IgyenItalPanel.setVisible(false);
+
+            calculate();
+            refreshGUI();
+        });
+
     }
 
    public static void main(String[] args) {
@@ -169,7 +178,6 @@ public class Plus extends  JFrame {
         if (osszesenFreska + osszesenPolo >= 45 && !ingyenItalValasztva )
         {
             valasztasAktiv = true;
-            //ingyenItalValasztva = true;
         }
     }
 
@@ -193,37 +201,19 @@ public class Plus extends  JFrame {
 
         Ltotal.setText(String.valueOf(osszEtel+osszItal+" €"));
 
-        if(valasztasAktiv)
-        {  ingyenPanel.setVisible(true);
-            RejtettCoke.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-// mit tegyen ha megnyomom
-                    ingyenPanel.setVisible(false);
+        if(valasztasAktiv) {
+            if (!ingyenItalValasztva)
+                ingyenPanel.setVisible(true);
 
-            RejtettSor.addActionListener(new ActionListener() {
-                        @Override
-                        public void actionPerformed(ActionEvent e) {
-// mit tegyen ha megnyomom
-                            ingyenPanel.setVisible(false);
-                        }
-                    });
+            if (ingyenCoke || ingyenSor) {
+                IgyenItalPanel.setVisible(true);
+
+                if (ingyenSor) {
+                    ingyenLabel.setText("Ingyen ital: sör");
+                } else {
+                    ingyenLabel.setText("Ingyen ital: coke");
                 }
-            });
-        }
-        else
-        {
-            ingyenPanel.setVisible(false);
-        }
-        if (ingyenCoke || ingyenSor)
-        {
-            if ( ingyenSor )
-            {
-                ingyenLabel.setText("Ingyen ital: sör");
-            }
-            else
-            {
-                ingyenLabel.setText("Ingyen ital: coke");
+                ingyenPanel.setVisible(false);
             }
         }
 
