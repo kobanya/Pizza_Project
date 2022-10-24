@@ -179,7 +179,7 @@ public class Plus extends  JFrame {
         sorDbLabel.setText(String.valueOf(beerDb));
         cokeDbLabel.setText(String.valueOf(cokeDb));
 
-        OsszesFresca.setText(frescaDb+" x  "+frescaAr+" €  = " + osszesenFreska + " €");
+        OsszesFresca.setText("Összesen :"+ osszesenFreska + " €");
         OsszesPolo.setText("Összesen : " + osszesenPolo + " €");
         OsszesSor.setText("Összesen : " + osszesenBeer + " €");
         OsszesCoke.setText("Összesen : " + osszesenCoke + " €");
