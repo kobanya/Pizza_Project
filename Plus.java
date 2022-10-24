@@ -144,6 +144,10 @@ public class Plus extends  JFrame {
             poloDb=0;
             cokeDb=0;
             beerDb=0;
+            ingyenItalValasztva = false;
+            ingyenCoke = false;
+            ingyenSor = false;
+            valasztasAktiv= false;
 
             calculate();
             refreshGUI();
@@ -190,7 +194,7 @@ public class Plus extends  JFrame {
         sorDbLabel.setText(String.valueOf(beerDb));
         cokeDbLabel.setText(String.valueOf(cokeDb));
 
-        OsszesFresca.setText("Összesen :"+ osszesenFreska + " €");
+        OsszesFresca.setText("Összesen : "+ osszesenFreska + " €");
         OsszesPolo.setText("Összesen : " + osszesenPolo + " €");
         OsszesSor.setText("Összesen : " + osszesenBeer + " €");
         OsszesCoke.setText("Összesen : " + osszesenCoke + " €");
