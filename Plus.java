@@ -167,6 +167,7 @@ public class Plus extends  JFrame {
         osszesenCoke = cokeDb * cokeAr;
         int beerAr = 4;
         osszesenBeer = beerDb * beerAr;
+
   //  Ingyenital panel megjelenítése majd újbóli eltüntetése ha ételt törölsz
 
         if (osszesenFreska + osszesenPolo >= 45 && !ingyenItalValasztva) {
@@ -197,22 +198,23 @@ public class Plus extends  JFrame {
 
         Ltotal.setText(osszEtel + osszItal + " €");
 
-        IngyenButton.addActionListener(e -> IgyenItalPanel.setVisible(false));
+
         ingyenPanel.setVisible(valasztasAktiv);
+        IngyenButton.addActionListener(e -> IgyenItalPanel.setVisible(false));
 
         if (ingyenCoke || ingyenSor)
         {
             if (ingyenSor) {
                 ingyenLabel.setText("Ingyen ital  / Free beverage:   Sör / Beer");
-            } else {
+            }
+            else {
                 ingyenLabel.setText("Ingyen ital / Free beverage:   Coke");
             }
             ingyenPanel.setVisible(false);
             IgyenItalPanel.setVisible(true);
+
         }
 
     }
-
-
 
 }
