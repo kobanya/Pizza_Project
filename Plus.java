@@ -158,8 +158,7 @@ public class Plus extends  JFrame {
         }
 
 
-    void calculate()
-    {
+    void calculate() {
         int frescaAr = 18;
         osszesenFreska = frescaDb * frescaAr;
         int poloAr = 15;
@@ -168,13 +167,16 @@ public class Plus extends  JFrame {
         osszesenCoke = cokeDb * cokeAr;
         int beerAr = 4;
         osszesenBeer = beerDb * beerAr;
+  //  Ingyenital panel megjelenítése majd újbóli eltüntetése ha ételt törölsz
 
-        if (osszesenFreska + osszesenPolo >= 45 && !ingyenItalValasztva )
-        {
+        if (osszesenFreska + osszesenPolo >= 45 && !ingyenItalValasztva) {
             valasztasAktiv = true;
         }
+        if  (osszesenFreska + osszesenPolo < 45 && !ingyenItalValasztva)
+        {
+            valasztasAktiv = false;
+        }
     }
-
     void refreshGUI()
     {
         frescaDbLabel.setText(String.valueOf(frescaDb));
