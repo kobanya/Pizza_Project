@@ -140,10 +140,16 @@ public class Plus extends JFrame {
             refreshGUI();
         });
 // ingyenital törlése
-        IngyenButton.addActionListener(e -> IgyenItalPanel.setVisible(false));
+        IngyenButton.addActionListener(e -> {
 
-        calculate();
-        refreshGUI();
+            ingyenCoke = false;
+            ingyenSor = false;
+            calculate();
+            refreshGUI();
+
+        });
+
+
     }
     public static void main(String[] args) {
         JFrame frame = new Plus("Pizza rendelő rendszer / Pizza Ordering System");
@@ -198,7 +204,6 @@ public class Plus extends JFrame {
 
 
         ingyenPanel.setVisible(valasztasAktiv);
-        IngyenButton.addActionListener(e -> IgyenItalPanel.setVisible(false));
 
         if (ingyenCoke || ingyenSor)
         {
@@ -211,6 +216,10 @@ public class Plus extends JFrame {
             ingyenPanel.setVisible(false);
             IgyenItalPanel.setVisible(true);
 
+        }
+        else
+        {
+            IgyenItalPanel.setVisible(false);
         }
 
     }
