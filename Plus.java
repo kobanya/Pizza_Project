@@ -31,18 +31,18 @@ public class Plus extends JFrame {
     private JLabel ingyenLabel;
 
 
-    private int frescaDb;
-    private int poloDb;
-    private int cokeDb;
-    private int beerDb;
+    public int frescaDb;
+    public int poloDb;
+    public int cokeDb;
+    public int beerDb;
 
 
-    private int osszesenPolo;
-    private int osszesenFreska;
-    private int osszesenBeer;
-    private int osszesenCoke;
+    public int osszesenPolo;
+    public int osszesenFreska;
+    public int osszesenBeer;
+    public int osszesenCoke;
 
-    private boolean valasztasAktiv;
+    public boolean valasztasAktiv;
     private boolean ingyenItalValasztva = false;
     private boolean ingyenSor = false;
     private boolean ingyenCoke = false;
