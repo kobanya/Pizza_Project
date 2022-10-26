@@ -145,7 +145,6 @@ public class Plus extends JFrame {
         calculate();
         refreshGUI();
     }
-
     public static void main(String[] args) {
         JFrame frame = new Plus("Pizza rendelő rendszer / Pizza Ordering System");
         frame.setVisible(true);
