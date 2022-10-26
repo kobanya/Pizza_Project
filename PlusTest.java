@@ -17,12 +17,10 @@ class PlusTest {
         plus.calculate();
 
         assertAll(
-                () -> Assertions.assertEquals(36,plus.osszesenFreska),
+                () -> Assertions.assertEquals(360,plus.osszesenFreska,"Fresca ár számításban van hiba\n"),
                 () -> Assertions.assertEquals(30,plus.osszesenPolo),
                 () -> Assertions.assertEquals(6,plus.osszesenCoke),
                 () -> Assertions.assertEquals(8,plus.osszesenBeer)
         );
-
-        //csekkoljuk a kimeneteket
     }
 }
