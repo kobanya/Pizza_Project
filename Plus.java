@@ -1,14 +1,16 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class Plus extends  JFrame {
+public class Plus extends JFrame {
+    public JLabel frescaDbLabel;
+    public JButton darabFresca;
+    public JLabel OsszesFresca;
+    public JLabel OsszesPolo;
     private JPanel mainPanel;
     private JPanel ingyenPanel;
-    public JLabel frescaDbLabel;
     private JLabel poloDbLabel;
     private JLabel sorDbLabel;
     private JLabel cokeDbLabel;
-    public JButton darabFresca;
     private JButton buttonClear;
     private JButton PluszPolo;
     private JButton TorolPolo;
@@ -19,8 +21,6 @@ public class Plus extends  JFrame {
     private JButton removeAll;
     private JButton RejtettSor;
     private JButton RejtettCoke;
-    public JLabel OsszesFresca;
-    public JLabel OsszesPolo;
     private JLabel OsszesSor;
     private JLabel OsszesCoke;
     private JLabel osszEtelLabel;
@@ -44,7 +44,6 @@ public class Plus extends  JFrame {
 
     private boolean valasztasAktiv;
     private boolean ingyenItalValasztva = false;
-
     private boolean ingyenSor = false;
     private boolean ingyenCoke = false;
 
@@ -62,31 +61,31 @@ public class Plus extends  JFrame {
             refreshGUI();
         });
 
-    // Fresca pizza  törlése
+        // Fresca pizza  törlése
         buttonClear.addActionListener(e -> {
             frescaDb = 0;
             calculate();
             refreshGUI();
         });
-    // Polo Pizza hozzáadása gomb
+        // Polo Pizza hozzáadása gomb
         PluszPolo.addActionListener(e -> {
             poloDb++;
             calculate();
             refreshGUI();
         });
-     // Polo törlése
+        // Polo törlése
         TorolPolo.addActionListener(e -> {
             poloDb = 0;
             calculate();
             refreshGUI();
         });
-     // Sör hozzáadása
+        // Sör hozzáadása
         SorPlusz.addActionListener(e -> {
             beerDb++;
             calculate();
             refreshGUI();
         });
- // Sör törlése
+        // Sör törlése
         SorClear.addActionListener(e -> {
             beerDb = 0;
             calculate();
@@ -127,14 +126,14 @@ public class Plus extends  JFrame {
 // Minden adat  nullázása
 
         removeAll.addActionListener(e -> {
-            frescaDb=0;
-            poloDb=0;
-            cokeDb=0;
-            beerDb=0;
+            frescaDb = 0;
+            poloDb = 0;
+            cokeDb = 0;
+            beerDb = 0;
             ingyenItalValasztva = false;
             ingyenCoke = false;
             ingyenSor = false;
-            valasztasAktiv= false;
+            valasztasAktiv = false;
             IgyenItalPanel.setVisible(false);
 
             calculate();
@@ -143,19 +142,19 @@ public class Plus extends  JFrame {
 // ingyenital törlése
         IngyenButton.addActionListener(e -> IgyenItalPanel.setVisible(false));
 
-            calculate();
-            refreshGUI();
+        calculate();
+        refreshGUI();
     }
 
-   public static void main(String[] args) {
-      JFrame frame = new Plus("Pizza rendelő rendszer / Pizza Ordering System");
+    public static void main(String[] args) {
+        JFrame frame = new Plus("Pizza rendelő rendszer / Pizza Ordering System");
         frame.setVisible(true);
-   // az ablak a monitor közepén nyílik meg
-       Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
-       int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2);
-       int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
-       frame.setLocation(x, y);
-        }
+        // az ablak a monitor közepén nyílik meg
+        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+        int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2);
+        int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
+        frame.setLocation(x, y);
+    }
 
 
     void calculate() {
@@ -168,7 +167,7 @@ public class Plus extends  JFrame {
         int beerAr = 4;
         osszesenBeer = beerDb * beerAr;
 
-  //  Ingyenital panel megjelenítése majd újbóli eltüntetése ha ételt törölsz
+        //  Ingyenital panel megjelenítése majd újbóli eltüntetése ha ételt törölsz
 
         if (osszesenFreska + osszesenPolo >= 45 && !ingyenItalValasztva) {
             valasztasAktiv = true;
@@ -185,7 +184,7 @@ public class Plus extends  JFrame {
         sorDbLabel.setText(String.valueOf(beerDb));
         cokeDbLabel.setText(String.valueOf(cokeDb));
 
-        OsszesFresca.setText(" Összesen : "+ osszesenFreska + " €");
+        OsszesFresca.setText(" Összesen : " + osszesenFreska + " €");
         OsszesPolo.setText(" Összesen : " + osszesenPolo + " €");
         OsszesSor.setText(" Összesen : " + osszesenBeer + " €");
         OsszesCoke.setText(" Összesen : " + osszesenCoke + " €");
